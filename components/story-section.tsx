@@ -1,6 +1,3 @@
-"use client"
-
-import { useMemo } from "react"
 import Image from "next/image"
 
 function getStreakDays(): number {
@@ -11,7 +8,7 @@ function getStreakDays(): number {
 }
 
 export function StorySection() {
-  const streakDays = useMemo(() => getStreakDays(), [])
+  const streakDays = getStreakDays()
 
   return (
     <section id="story" className="relative px-6 py-24">
