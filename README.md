@@ -6,7 +6,7 @@
 
 The official marketing website for **Mile A Day**, a free iOS app that challenges you to walk or run one mile every single day and build an unbreakable streak.
 
-🔗 **Live site:** [mileaday.app](https://mileaday.app)
+🔗 **Live site:** [mileaday.run](https://mileaday.run)
 
 ---
 
