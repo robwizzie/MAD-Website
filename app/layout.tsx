@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Mile A Day - Walk or Run a Mile Every Single Day',
     description: 'Build an unbreakable habit. Track your streak, compete with friends, and Go the Extra Mile.',
   },
-  metadataBase: new URL('https://mileaday.app'),
+  metadataBase: new URL('https://mileaday.run'),
   icons: {
     icon: '/images/mad-circle-icon.png',
     apple: '/images/mad-circle-icon.png',
