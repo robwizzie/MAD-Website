@@ -1,23 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Bebas_Neue, DM_Sans, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-const bebasNeue = Bebas_Neue({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-bebas-neue',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-})
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-})
 
 export const metadata: Metadata = {
   title: 'Mile A Day - Walk or Run a Mile Every Single Day',
@@ -54,7 +37,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${dmSans.variable} ${geistMono.variable}`}>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased bg-[#0a0a0a] text-[#f5f5f5]">
         {children}
         <Analytics />
