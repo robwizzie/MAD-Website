@@ -58,6 +58,18 @@ npm start        # Start production server
 npm run lint     # Run ESLint
 ```
 
+### Link Previews (OG Video)
+
+Shared links show an animated preview: `og:video` (`public/og/<slug>.mp4`) with an `og:image` fallback (`public/og/<slug>.png`) for platforms that only show stills. Both are rendered from an animated HTML scene with Playwright + ffmpeg:
+
+```bash
+npm i -D playwright && npx playwright install chromium   # one-time
+npm run og:render          # render every page in scripts/og/pages.mjs
+npm run og:render -- home  # render one slug
+```
+
+To give a new page its own preview, add an entry to `scripts/og/pages.mjs`, render it, and spread `ogMedia('<slug>', '<alt>')` from `lib/og.ts` into that page's `openGraph` / `twitter` metadata. Pages without their own entry inherit the home preview from the root layout.
+
 ---
 
 ## Project Structure
@@ -79,8 +91,17 @@ components/
   footer.tsx              # Site footer
   ui/                     # Reusable UI components (Radix-based)
 
+lib/
+  og.ts                   # OG video/image metadata helper
+
+scripts/og/
+  scene.html              # Animated preview scene (rendered frame by frame)
+  pages.mjs               # Per-page preview copy
+  render.mjs              # Renders public/og/<slug>.mp4 + .png
+
 public/
   images/                 # App screenshots, logos, avatars
+  og/                     # Generated link-preview videos + fallback images
 ```
 
 ---

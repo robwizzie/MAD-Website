@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Bebas_Neue, DM_Sans, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SITE_URL, ogMedia } from '@/lib/og'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({
@@ -19,6 +20,8 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
 })
 
+const og = ogMedia('home', 'Mile A Day — One mile. Every day.')
+
 export const metadata: Metadata = {
   title: 'Mile A Day - Walk or Run a Mile Every Single Day',
   description: 'Build an unbreakable habit. Track your streak, compete with friends, and Go the Extra Mile. Available on iOS and Apple Watch.',
@@ -29,13 +32,14 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Mile A Day',
     locale: 'en_US',
+    ...og.openGraph,
   },
   twitter: {
-    card: 'summary_large_image',
+    ...og.twitter,
     title: 'Mile A Day - Walk or Run a Mile Every Single Day',
     description: 'Build an unbreakable habit. Track your streak, compete with friends, and Go the Extra Mile.',
   },
-  metadataBase: new URL('https://mileaday.run'),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: '/images/mad-circle-icon.png',
     apple: '/images/mad-circle-icon.png',
